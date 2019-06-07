@@ -8,16 +8,16 @@
 
 namespace Enhavo\Bundle\SidebarBundle\Form\Type;
 
-use Enhavo\Bundle\GridBundle\Form\Type\ColumnType;
-use Enhavo\Bundle\GridBundle\Form\Type\GridType;
+use Enhavo\Bundle\BlockBundle\Form\Type\ColumnType;
+use Enhavo\Bundle\BlockBundle\Form\Type\ContainerType;
 use Enhavo\Bundle\SidebarBundle\Entity\Sidebar;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Enhavo\Bundle\SidebarBundle\Entity\SidebarColumnItem;
+use Enhavo\Bundle\SidebarBundle\Entity\SidebarColumnBlock;
 
-class SidebarColumnItemType extends AbstractType
+class SidebarColumnBlockType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -29,9 +29,9 @@ class SidebarColumnItemType extends AbstractType
             'placeholder' => '---'
         ]);
 
-        $builder->add('column', GridType::class, [
+        $builder->add('column', ContainerType::class, [
             'label' => 'column.label.column',
-            'translation_domain' => 'EnhavoGridBundle',
+            'translation_domain' => 'EnhavoBlockBundle',
             'item_groups' => ['content'],
         ]);
     }
@@ -39,7 +39,7 @@ class SidebarColumnItemType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => SidebarColumnItem::class
+            'data_class' => SidebarColumnBlock::class
         ]);
     }
 

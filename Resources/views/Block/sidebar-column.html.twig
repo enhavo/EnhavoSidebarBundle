@@ -3,11 +3,11 @@
 {% endif %}
     <div class="row">
         <div class="col-md-8">
-            {{ grid_render(data.column) }}
+            {{ container_render(data.column) }}
         </div>
         <div class="col-md-4">
             {% if data.sidebar %}
-                {{ grid_render(data.sidebar.grid) }}
+                {{ container_render(data.sidebar.container) }}
             {% endif %}
         </div>
     </div>

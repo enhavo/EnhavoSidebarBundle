@@ -8,10 +8,10 @@
 
 namespace Enhavo\Bundle\SidebarBundle\Entity;
 
-use Enhavo\Bundle\GridBundle\Model\Column\Column;
-use Enhavo\Bundle\GridBundle\Model\GridInterface;
+use Enhavo\Bundle\BlockBundle\Model\Column\Column;
+use Enhavo\Bundle\BlockBundle\Model\ContainerInterface;
 
-class SidebarColumnItem extends Column
+class SidebarColumnBlock extends Column
 {
     /**
      * @var Sidebar
@@ -19,12 +19,12 @@ class SidebarColumnItem extends Column
     private $sidebar;
 
     /**
-     * @var GridInterface
+     * @var ContainerInterface
      */
     private $column;
 
     /**
-     * @return GridInterface
+     * @return ContainerInterface
      */
     public function getColumn()
     {
@@ -32,7 +32,7 @@ class SidebarColumnItem extends Column
     }
 
     /**
-     * @param GridInterface $column
+     * @param ContainerInterface $column
      */
     public function setColumn($column)
     {
@@ -55,12 +55,12 @@ class SidebarColumnItem extends Column
         $this->sidebar = $sidebar;
     }
 
-    public function getGrids()
+    public function getContainers()
     {
-        $grids = [];
+        $containers = [];
         if($this->column) {
-            $grids[] = $this->column;
+            $containers[] = $this->column;
         }
-        return $grids;
+        return $containers;
     }
 }
